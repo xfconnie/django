@@ -16,12 +16,16 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 # from django.con.urls.defaults import *
-from mysite.views import hello, my_homepage_view
+from mysite.views import hello, my_homepage_view, display_meta
 from django.contrib import admin
+from mysite.books import views
 admin.autodiscover()
 
 urlpatterns = [
     url('^hello/$', hello),
     url('^$', my_homepage_view),
     url(r'^admin/', include(admin.site.urls)),
+    url('^displaymeta/$', display_meta),
+    url(r'^search-form/$', views.search_form),
+#    url(r'^search/$', views.search),
 ]
